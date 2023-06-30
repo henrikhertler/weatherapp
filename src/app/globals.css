@@ -4,19 +4,36 @@
 
 :root {
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+    --background-start-rgb-dark: 30, 45, 80;
+    --background-end-rgb-dark: 30, 99, 120;
+    --background-start-rgb-light: 200, 225, 245;
+    --background-end-rgb-light: 230, 245, 255;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
+        --background-start-rgb-dark: 0, 0, 0;
+        --background-end-rgb-dark: 0, 0, 0;
     }
 }
 
-body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+@layer utilities {
+    .dark-bg {
+        color: rgb(var(--foreground-rgb));
+        background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb-dark))) rgb(var(--background-start-rgb-dark));
+    }
+
+    .light-bg {
+        color: rgb(var(--foreground-rgb));
+        background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb-light))) rgb(var(--background-start-rgb-light));
+    }
+}
+
+
+.half-transparent {
+    mask-image: linear-gradient(to bottom, black 0%, transparent 50%);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.33;
 }
