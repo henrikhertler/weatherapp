@@ -2,7 +2,7 @@
 
 import { useWeatherData } from '@/hooks/useWeatherData';
 import { findNearestValueToCurrentDate, getWeatherIcon, toReadableDate } from '@/helpers/utility';
-import { useLocationData } from '@/hooks/useCity';
+import { useLocationData } from '@/hooks/useLocationData';
 import { WeatherData } from '@/types/weatherData';
 import { LocationData } from '@/types/locationData';
 
@@ -36,7 +36,7 @@ export default function WeatherCard(props: WeatherCardProps) {
             <div
                 className='max-w-sm rounded-2xl
                 [ p-2 md:p-4 lg:p-6 ]
-                [ bg-gray-50 dark:bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40 ]
+                [ bg-gray-300 dark:bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40 ]
                 [ border-[1px] border-solid border-white border-opacity-30 ]
                 [ shadow-black/70 shadow-2xl ]
                 sm:w-full overflow-hidden'>
@@ -50,7 +50,7 @@ export default function WeatherCard(props: WeatherCardProps) {
                                 <div className={'absolute half-transparent top-1/4 -z-10'}>
                                     <div className='w-128 h-128 rounded-full bg-gradient-radial from-transparent via-transparent to-white dark:to-black'></div>
                                 </div>
-                                <h1 className='text-6xl font-bold mb-2'>
+                                <h1 className='text-6xl font-bold mb-2' data-testid={'temp'}>
                                     {values?.temperature_2m ? Math.round(values.temperature_2m) : null}
                                     <span className={'text-4xl opacity-75 absolute'}>°</span>
                                 </h1>

@@ -1,5 +1,5 @@
 import { fetchWeatherData } from '@/hooks/useWeatherData';
-import { fetchLocationData } from '@/hooks/useCity';
+import { fetchLocationData } from '@/hooks/useLocationData';
 import { DarkModeToggle } from '@/components/darkModeToggle';
 import WeatherCard from '@/components/weatherCard';
 
